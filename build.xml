@@ -3,7 +3,7 @@
     <property environment="ENV"/>
 
     <property name="src.dir" value="src"/>
-    <property name="tests.dir" value="tests"/>
+    <property name="tests.dir" value="${src.dir}/tests"/>
     <property name="build.dir" value="build"/>
     <property name="dependencies.dir" value="deps"/>
     <property name="tests.report.dir" value="${build.dir}/tests"/>
@@ -18,7 +18,7 @@
         <delete dir="${build.dir}"/>
     </target>
 
-    <target name="build" depends="clean">
+    <target name="compile">
         <mkdir dir="${build.dir}"/>
         <mkdir dir="${tests.report.dir}"/>
         <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" includeantruntime="false">
@@ -26,13 +26,13 @@
         </javac>
     </target>
 
-    <target name="test" depends="build">
+    <target name="test" depends="compile">
         <junit fork="true" haltonfailure="yes">
             <classpath refid="junit.class.path"/>
             <batchtest todir="${tests.report.dir}">
                 <formatter type="brief" usefile="false"/>
-                <fileset dir="${tests.dir}">
-                    <include name="*.java"/>
+                <fileset dir="${src.dir}">
+                    <include name="**/*Test*.java"/>
                 </fileset>
             </batchtest>
         </junit>
