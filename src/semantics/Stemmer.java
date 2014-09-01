@@ -1,3 +1,5 @@
+package semantics;
+
 class Stemmer
 {
     public static boolean isVowel(String word, int i)
