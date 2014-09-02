@@ -1,6 +1,6 @@
 package semantics;
 
-class Stemmer
+public class Stemmer
 {
     public static boolean isVowel(String word, int i)
     {
