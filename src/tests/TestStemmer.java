@@ -59,4 +59,49 @@ public class TestStemmer
         assertTrue(Stemmer.containsVowel("SuN"));
         assertTrue(Stemmer.containsVowel("JOHN"));
     }
+
+    @Test
+    public void testEndsWithDoubleConsonant()
+    {
+        assertFalse(Stemmer.endsWithDoubleConsonant("hello"));
+        assertFalse(Stemmer.endsWithDoubleConsonant("world"));
+        assertFalse(Stemmer.endsWithDoubleConsonant("shivam"));
+        assertTrue(Stemmer.endsWithDoubleConsonant("fall"));
+        assertTrue(Stemmer.endsWithDoubleConsonant("ball"));
+        assertTrue(Stemmer.endsWithDoubleConsonant("hiss"));
+        assertTrue(Stemmer.endsWithDoubleConsonant("fizz"));
+    }
+
+    @Test
+    public void testEndsWithCVC()
+    {
+        assertFalse(Stemmer.endsWithCVC("fail"));
+        assertFalse(Stemmer.endsWithCVC("hail"));
+        assertFalse(Stemmer.endsWithCVC("ball"));
+        assertFalse(Stemmer.endsWithCVC("bow"));
+        assertTrue(Stemmer.endsWithCVC("wil"));
+        assertTrue(Stemmer.endsWithCVC("fil"));
+        assertTrue(Stemmer.endsWithCVC("hop"));
+    }
+
+    @Test
+    public void testStep1()
+    {
+        assertEquals("caress", Stemmer.step1("caresses"));
+        assertEquals("poni", Stemmer.step1("ponies"));
+        assertEquals("caress", Stemmer.step1("caress"));
+        assertEquals("cat", Stemmer.step1("cats"));
+        assertEquals("agree", Stemmer.step1("agreed"));
+        assertEquals("feed", Stemmer.step1("feed"));
+        assertEquals("plaster", Stemmer.step1("plastered"));
+        assertEquals("motor", Stemmer.step1("motoring"));
+        assertEquals("sing", Stemmer.step1("sing"));
+        assertEquals("conflate", Stemmer.step1("conflated"));
+        assertEquals("trouble", Stemmer.step1("troubled"));
+        assertEquals("size", Stemmer.step1("sized"));
+        assertEquals("hop", Stemmer.step1("hopping"));
+        assertEquals("hiss", Stemmer.step1("hissing"));
+        assertEquals("file", Stemmer.step1("filing"));
+        assertEquals("fail", Stemmer.step1("failing"));
+    }
 }

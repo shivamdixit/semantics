@@ -51,8 +51,11 @@ public class Stemmer
     public static boolean endsWithDoubleConsonant(String s)
     {
         int lastIndex = s.length() - 1;
-        if (isVowel(s, lastIndex) && isVowel(s, lastIndex - 1)) {
-            return true;
+
+        if (s.charAt(lastIndex) == s.charAt(lastIndex-1)) {
+            if (!isVowel(s, lastIndex) && !isVowel(s, lastIndex - 1)) {
+                return true;
+            }
         }
 
         return false;
@@ -67,7 +70,7 @@ public class Stemmer
                 if (
                     !isVowel(s, s.length() - 1) &&
                     isVowel(s, s.length() - 2) &&
-                    isVowel(s, s.length() - 3)
+                    !isVowel(s, s.length() - 3)
                 ) {
                     return true;
                 }
@@ -118,6 +121,63 @@ public class Stemmer
         }
 
         return m;
+    }
+
+    public static String step1(String word)
+    {
+        boolean flag = false;
+
+        // Step 1a
+        if (ends(word, "SSES")) {
+            word = word.replaceAll("(\\w+)sses$", "$1ss");
+        } else if (ends(word, "IES")) {
+            word = word.replaceAll("(\\w+)ies$", "$1i");
+        } else if (ends(word, "SS")) {
+            // Do nothing. Required to skip the last if
+        } else if (ends(word, "S")) {
+            word = word.replaceAll("(\\w+)s$", "$1");
+        }
+
+        // Step 1b
+        if (ends(word, "EED")) {
+            if (getM(word.replaceAll("(\\w+)eed$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)d$", "$1");
+            }
+        } else if (ends(word, "ED")) {
+            if (containsVowel(word.replaceAll("(\\w+)ed$", "$1"))) {
+                word = word.replaceAll("(\\w+)ed$", "$1");
+                flag = true;
+            }
+        } else if (ends(word, "ING")) {
+            if (containsVowel(word.replaceAll("(\\w+)ing$", "$1"))) {
+                word = word.replaceAll("(\\w+)ing$", "$1");
+                flag = true;
+            }
+        }
+
+        if (flag) {
+            if (ends(word, "AT") || ends(word, "BL") || ends(word, "IZ")) {
+                word = word + "e";
+            } else if (
+                endsWithDoubleConsonant(word) &&
+                !(
+                    ends(word, "L") ||
+                    ends(word, "S") ||
+                    ends(word, "Z")
+                )
+            ) {
+                word = word.substring(0, word.length() - 1);
+            } else if (endsWithCVC(word) && (getM(word) == 1)) {
+                word = word + 'e';
+            }
+        }
+
+        return word;
+    }
+
+    public static String step2(String word)
+    {
+
     }
 
     // public static void stem(String word)
