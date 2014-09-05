@@ -172,12 +172,119 @@ public class Stemmer
             }
         }
 
+        if (ends(word, "Y")) {
+            if (containsVowel(word.replaceAll("(\\w+)y$", "$1"))) {
+                word = word.replaceAll("(\\w+)y$", "$1i");
+            }
+        }
+
         return word;
     }
 
     public static String step2(String word)
     {
+        if (ends(word, "ATIONAL")) {
+            if (getM(word.replaceAll("(\\w+)ational$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ational$", "$1ate");
+            }
 
+        } else if (ends(word, "TIONAL")) {
+            if (getM(word.replaceAll("(\\w+)tional$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)tional$", "$1tion");
+            }
+
+        } else if (ends(word, "ENCI")) {
+            if (getM(word.replaceAll("(\\w+)enci$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)enci$", "$1ence");
+            }
+
+        } else if (ends(word, "ANCI")) {
+            if (getM(word.replaceAll("(\\w+)anci$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)anci$", "$1ance");
+            }
+
+        } else if (ends(word, "IZER")) {
+            if (getM(word.replaceAll("(\\w+)izer$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)izer$", "$1ize");
+            }
+
+        } else if (ends(word, "ABLI")) {
+            if (getM(word.replaceAll("(\\w+)abli$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)abli$", "$1able");
+            }
+
+        } else if (ends(word, "ALLI")) {
+            if (getM(word.replaceAll("(\\w+)alli$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)alli$", "$1al");
+            }
+
+        } else if (ends(word, "ENTLI")) {
+            if (getM(word.replaceAll("(\\w+)entli$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)entli$", "$1ent");
+            }
+
+        } else if (ends(word, "ELI")) {
+            if (getM(word.replaceAll("(\\w+)eli$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)eli$", "$1e");
+            }
+
+        } else if (ends(word, "OUSLI")) {
+            if (getM(word.replaceAll("(\\w+)ousli$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ousli$", "$1ous");
+            }
+
+        } else if (ends(word, "IZATION")) {
+            if (getM(word.replaceAll("(\\w+)ization$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ization$", "$1ize");
+            }
+
+        } else if (ends(word, "ATION")) {
+            if (getM(word.replaceAll("(\\w+)ation$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ation$", "$1ate");
+            }
+
+        } else if (ends(word, "ATOR")) {
+            if (getM(word.replaceAll("(\\w+)ator$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ator$", "$1ate");
+            }
+
+        } else if (ends(word, "ALISM")) {
+            if (getM(word.replaceAll("(\\w+)alism$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)alism$", "$1al");
+            }
+
+        } else if (ends(word, "IVENESS")) {
+            if (getM(word.replaceAll("(\\w+)iveness$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)iveness$", "$1ive");
+            }
+
+        } else if (ends(word, "FULNESS")) {
+            if (getM(word.replaceAll("(\\w+)fulness$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)fulness$", "$1ful");
+            }
+
+        } else if (ends(word, "OUSNESS")) {
+            if (getM(word.replaceAll("(\\w+)ousness$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ousness$", "$1ous");
+            }
+
+        } else if (ends(word, "ALITI")) {
+            if (getM(word.replaceAll("(\\w+)aliti$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)aliti$", "$1al");
+            }
+
+        } else if (ends(word, "IVITI")) {
+            if (getM(word.replaceAll("(\\w+)iviti$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)iviti$", "$1ive");
+            }
+
+        } else if (ends(word, "BILITI")) {
+            if (getM(word.replaceAll("(\\w+)biliti$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)biliti$", "$1ble");
+            }
+        }
+
+        return word;
     }
 
     // public static void stem(String word)

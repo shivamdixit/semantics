@@ -103,5 +103,27 @@ public class TestStemmer
         assertEquals("hiss", Stemmer.step1("hissing"));
         assertEquals("file", Stemmer.step1("filing"));
         assertEquals("fail", Stemmer.step1("failing"));
+        assertEquals("happi", Stemmer.step1("happy"));
+        assertEquals("sky", Stemmer.step1("sky"));
+    }
+
+    @Test
+    public void testStep2()
+    {
+        assertEquals("relate", Stemmer.step2("relational"));
+        assertEquals("condition", Stemmer.step2("conditional"));
+        assertEquals("valence", Stemmer.step2("valenci"));
+        assertEquals("hesitance", Stemmer.step2("hesitanci"));
+        assertEquals("digitize", Stemmer.step2("digitizer"));
+        assertEquals("conformable", Stemmer.step2("conformabli"));
+        assertEquals("radical", Stemmer.step2("radicalli"));
+        assertEquals("different", Stemmer.step2("differentli"));
+        assertEquals("vile", Stemmer.step2("vileli"));
+        assertEquals("analogous", Stemmer.step2("analogousli"));
+        assertEquals("rational", Stemmer.step2("rational"));
+        assertEquals("callous", Stemmer.step2("callousness"));
+        assertEquals("formal", Stemmer.step2("formaliti"));
+        assertEquals("sensitive", Stemmer.step2("sensitiviti"));
+        assertEquals("sensible", Stemmer.step2("sensibiliti"));
     }
 }
