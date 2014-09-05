@@ -37,6 +37,7 @@ public class TestStemmer
         assertEquals(2, Stemmer.getM("Shivam"));
         assertEquals(2, Stemmer.getM("PRIVATE"));
         assertEquals(2, Stemmer.getM("ORRERY"));
+        assertEquals(2, Stemmer.getM("probat"));
     }
 
     @Test
@@ -125,5 +126,50 @@ public class TestStemmer
         assertEquals("formal", Stemmer.step2("formaliti"));
         assertEquals("sensitive", Stemmer.step2("sensitiviti"));
         assertEquals("sensible", Stemmer.step2("sensibiliti"));
+    }
+
+    @Test
+    public void testStep3()
+    {
+        assertEquals("triplic", Stemmer.step3("triplicate"));
+        assertEquals("form", Stemmer.step3("formative"));
+        assertEquals("formal", Stemmer.step3("formalize"));
+        assertEquals("electric", Stemmer.step3("electriciti"));
+        assertEquals("hope", Stemmer.step3("hopeful"));
+        assertEquals("good", Stemmer.step3("goodness"));
+    }
+
+    @Test
+    public void testStep4()
+    {
+        assertEquals("reviv", Stemmer.step4("revival"));
+        assertEquals("allow", Stemmer.step4("allowance"));
+        assertEquals("infer", Stemmer.step4("inference"));
+        assertEquals("airlin", Stemmer.step4("airliner"));
+        assertEquals("gyroscop", Stemmer.step4("gyroscopic"));
+
+        assertEquals("adopt", Stemmer.step4("adoption"));
+        assertEquals("homolog", Stemmer.step4("homologou"));
+        assertEquals("commun", Stemmer.step4("communism"));
+        assertEquals("activ", Stemmer.step4("activate"));
+        assertEquals("angular", Stemmer.step4("angulariti"));
+        assertEquals("bowdler", Stemmer.step4("bowdlerize"));
+    }
+
+    @Test
+    public void testStep5()
+    {
+        // assertEquals("probat", Stemmer.step4("probate"));
+        // assertEquals("rate", Stemmer.step4("rate"));
+        // assertEquals("ceas", Stemmer.step4("cease"));
+    }
+
+    @Test
+    public void testStem()
+    {
+        assertEquals("bowl", Stemmer.stem("bowling"));
+        assertEquals("negoti", Stemmer.stem("negotiation"));
+        assertEquals("farm", Stemmer.stem("farming"));
+        assertEquals("malleabl", Stemmer.stem("malleable"));
     }
 }

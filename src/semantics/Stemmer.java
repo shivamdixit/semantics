@@ -287,8 +287,201 @@ public class Stemmer
         return word;
     }
 
-    // public static void stem(String word)
-    // {
+    public static String step3(String word)
+    {
+        if (ends(word, "ICATE")) {
+            if (getM(word.replaceAll("(\\w+)icate$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)icate$", "$1ic");
+            }
 
-    // }
+        } else if (ends(word, "ATIVE")) {
+            if (getM(word.replaceAll("(\\w+)ative$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ative$", "$1");
+            }
+
+        } else if (ends(word, "ALIZE")) {
+            if (getM(word.replaceAll("(\\w+)alize$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)alize$", "$1al");
+            }
+
+        } else if (ends(word, "ICITI")) {
+            if (getM(word.replaceAll("(\\w+)iciti$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)iciti$", "$1ic");
+            }
+
+        } else if (ends(word, "FUL")) {
+            if (getM(word.replaceAll("(\\w+)ful$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ful$", "$1");
+            }
+
+        } else if (ends(word, "NESS")) {
+            if (getM(word.replaceAll("(\\w+)ness$", "$1")) > 0) {
+                word = word.replaceAll("(\\w+)ness$", "$1");
+            }
+        }
+
+        return word;
+    }
+
+    public static String step4(String word)
+    {
+        String rootWord;
+
+        if (ends(word, "AL")) {
+            rootWord = word.replaceAll("(\\w+)al$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ANCE")) {
+            rootWord = word.replaceAll("(\\w+)ance$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ENCE")) {
+            rootWord = word.replaceAll("(\\w+)ence$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ER")) {
+            rootWord = word.replaceAll("(\\w+)er$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "IC")) {
+            rootWord = word.replaceAll("(\\w+)ic$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ABLE")) {
+            rootWord = word.replaceAll("(\\w+)able$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "IBLE")) {
+            rootWord = word.replaceAll("(\\w+)ible$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ANT")) {
+            rootWord = word.replaceAll("(\\w+)ant$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "EMENT")) {
+            rootWord = word.replaceAll("(\\w+)al$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "MENT")) {
+            rootWord = word.replaceAll("(\\w+)al$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ENT")) {
+            rootWord = word.replaceAll("(\\w+)al$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ION")) {
+            rootWord = word.replaceAll("(\\w+)ion$", "$1");
+
+            if (
+                getM(rootWord) > 1 &&
+                (ends(rootWord, "S") || ends(rootWord, "T"))
+            ) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "OU")) {
+            rootWord = word.replaceAll("(\\w+)ou$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ISM")) {
+            rootWord = word.replaceAll("(\\w+)ism$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ATE")) {
+            rootWord = word.replaceAll("(\\w+)ate$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "ITI")) {
+            rootWord = word.replaceAll("(\\w+)iti$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "OUS")) {
+            rootWord = word.replaceAll("(\\w+)ous$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "IVE")) {
+            rootWord = word.replaceAll("(\\w+)ive$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+
+        } else if (ends(word, "IZE")) {
+            rootWord = word.replaceAll("(\\w+)ize$", "$1");
+
+            if (getM(rootWord) > 1) {
+                word = rootWord;
+            }
+        }
+
+        return word;
+    }
+
+    public static String step5(String word)
+    {
+        String rootWord = word.replaceAll("(\\w+)e$", "$1");
+
+        if (getM(rootWord) > 1) {
+            word = rootWord;
+        } else if (getM(rootWord) == 1 && !(endsWithCVC(word))) {
+            word = rootWord;
+        }
+
+        return word;
+    }
+
+    public static String stem(String word)
+    {
+        return step5(step4(step3(step2(step1(word)))));
+    }
 }
