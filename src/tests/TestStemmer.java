@@ -171,5 +171,11 @@ public class TestStemmer
         assertEquals("negoti", Stemmer.stem("negotiation"));
         assertEquals("farm", Stemmer.stem("farming"));
         assertEquals("malleabl", Stemmer.stem("malleable"));
+        assertEquals("the", Stemmer.stem("the"));
+        assertEquals("at", Stemmer.stem("at"));
+        assertEquals("demonstr", Stemmer.stem("demonstrated"));
+        assertEquals("femal", Stemmer.stem("females"));
+        assertEquals("compon", Stemmer.stem("components"));
+        assertEquals("paradigm", Stemmer.stem("paradigms"));
     }
 }

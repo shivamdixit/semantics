@@ -384,21 +384,21 @@ public class Stemmer
             }
 
         } else if (ends(word, "EMENT")) {
-            rootWord = word.replaceAll("(\\w+)al$", "$1");
+            rootWord = word.replaceAll("(\\w+)ement$", "$1");
 
             if (getM(rootWord) > 1) {
                 word = rootWord;
             }
 
         } else if (ends(word, "MENT")) {
-            rootWord = word.replaceAll("(\\w+)al$", "$1");
+            rootWord = word.replaceAll("(\\w+)ment$", "$1");
 
             if (getM(rootWord) > 1) {
                 word = rootWord;
             }
 
         } else if (ends(word, "ENT")) {
-            rootWord = word.replaceAll("(\\w+)al$", "$1");
+            rootWord = word.replaceAll("(\\w+)ent$", "$1");
 
             if (getM(rootWord) > 1) {
                 word = rootWord;
