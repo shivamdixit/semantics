@@ -482,6 +482,6 @@ public class Stemmer
 
     public static String stem(String word)
     {
-        return step5(step4(step3(step2(step1(word)))));
+        return new String(step5(step4(step3(step2(step1(word))))));
     }
 }

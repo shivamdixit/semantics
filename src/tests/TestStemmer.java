@@ -177,5 +177,6 @@ public class TestStemmer
         assertEquals("femal", Stemmer.stem("females"));
         assertEquals("compon", Stemmer.stem("components"));
         assertEquals("paradigm", Stemmer.stem("paradigms"));
+        assertEquals("independ", Stemmer.stem("independent"));
     }
 }
