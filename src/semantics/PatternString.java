@@ -27,8 +27,9 @@ import java.util.*;
  */
 class PatternString
 {
-    private static final String dirname = "Docs";
-    private static final String stopWordsFileName = "MYSTWORD.TXT";
+    private static final String dirname = "../input/Docs";
+    private static final String stopWordsFileName = "../input/MYSTWORD.TXT";
+    private static final String outputDir = "../output/";
     private static LinkedHashMap<String, Integer> finalMap;
     private static List<HashMap<String, Integer>> listOfMaps;
     private static int[][] frequencyMatrix;
@@ -525,6 +526,7 @@ class PatternString
 
         for (int i = 0; i < files.length ; i++) {
             outFileName = (i+1) + outFileName;
+            outFileName = outputDir + outFileName;
 
             try {
                 PrintWriter out = new PrintWriter(new FileWriter(outFileName));
