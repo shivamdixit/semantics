@@ -13,6 +13,7 @@ This project find semantically similar words using *Pearson Correlation Coeffici
   * Elimination of high/low frequency words
 
 2. Calculation of Pearson Correlation Coefficient (PCC) between each pair of unique words
+   ![Pearson Correlation Coefficient] (https://raw.githubusercontent.com/shivamdixit/semantics/master/docs/Pearson.png "Pearson Correlation Coefficient")
 
 3. Find pair with maximum PCC.
 
@@ -21,4 +22,3 @@ This project find semantically similar words using *Pearson Correlation Coeffici
 5. Eliminate the columns of these two words from the frequency matrix.
 
 6. Repeat.
-
