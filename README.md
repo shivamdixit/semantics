@@ -5,7 +5,7 @@ The study of semantic similarity between words has been a part of natural langua
 
 To decide whether two words are semantically similar, it is important to know the semantic relations that hold between the words. For example, the words horse and cow can be considered semantically similar because both horses and cows are useful animals in agriculture. Similarly, a horse and a car can be considered semantically similar because cars, and historically horses, are used for transportation.
 
-This project find semantically similar words using *Pearson Correlation Coefficient*. The steps involved are:
+This project aims to find semantically similar words using *Pearson Correlation Coefficient*. The steps involved are:
 
 1. Pre-processing of input data
   * Stemming
