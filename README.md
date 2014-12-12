@@ -1,5 +1,6 @@
 Semantics
 ==========
+[![Build Status](https://travis-ci.org/shivamdixit/semantics.svg?branch=master)](https://travis-ci.org/shivamdixit/semantics)
 
 The study of semantic similarity between words has been a part of natural language processing and information retrieval for many years. Semantic similarity is a generic issue in a variety of applications in the areas of computational linguistics and artificial intelligence, both in the academic community and industry. Examples include word sense disambiguation, detection and correction of word spelling errors etc.
 
